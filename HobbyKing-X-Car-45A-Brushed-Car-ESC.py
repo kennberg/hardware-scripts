@@ -30,31 +30,31 @@ def get_key():
 
 if __name__ == '__main__':
   # pca9685 defaults to address 0x40 in i2c. If you changed jumpers, pass it here.
-	pca9685_pwm = PWM()
+  pca9685_pwm = PWM()
 
   # I found that frequency has to be 70 for this ESC.
-	pca9685_pwm.frequency = 70
+  pca9685_pwm.frequency = 70
 
-	print 'Listening to input.'
-	print 'Use 1 to prepare the ESC (aka arm it).'
-	print 'Use 2 to go forward.'
-	print 'Use 3 to go backward.'
-	print 'Use 4 to stop.'
-	print 'Use 0 to quit.'
+  print 'Listening to input.'
+  print 'Use 1 to prepare the ESC (aka arm it).'
+  print 'Use 2 to go forward.'
+  print 'Use 3 to go backward.'
+  print 'Use 4 to stop.'
+  print 'Use 0 to quit.'
 
-	while True:
-		key = get_key()
-		if key == '1':  # Prepare
-			pca9685_pwm.write(PIN_ESC, 0, MAX_POS)
-			time.sleep(0.2)
-			pca9685_pwm.write(PIN_ESC, 0, MIN_POS)
-			time.sleep(0.2)
-			pca9685_pwm.write(PIN_ESC, 0, MID_POS)
-		elif key == '2':  # Forward
-			pca9685_pwm.write(PIN_ESC, 0, MAX_POS)
-		elif key == '3':  # Reverse
-			pca9685_pwm.write(PIN_ESC, 0, MIN_POS)
-		elif key == '4':  # Stop
-			pca9685_pwm.write(PIN_ESC, 0, MID_POS)
-		elif key == '0':  # Quit
-			break
+  while True:
+    key = get_key()
+    if key == '1':  # Prepare
+      pca9685_pwm.write(PIN_ESC, 0, MAX_POS)
+      time.sleep(0.2)
+      pca9685_pwm.write(PIN_ESC, 0, MIN_POS)
+      time.sleep(0.2)
+      pca9685_pwm.write(PIN_ESC, 0, MID_POS)
+    elif key == '2':  # Forward
+      pca9685_pwm.write(PIN_ESC, 0, MAX_POS)
+    elif key == '3':  # Reverse
+      pca9685_pwm.write(PIN_ESC, 0, MIN_POS)
+    elif key == '4':  # Stop
+      pca9685_pwm.write(PIN_ESC, 0, MID_POS)
+    elif key == '0':  # Quit
+      break
