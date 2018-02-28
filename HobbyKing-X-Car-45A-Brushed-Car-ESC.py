@@ -1,6 +1,7 @@
 # Created by Alex Kennberg (https://github.com/kennberg/hardware-scripts)
 
 import sys
+import time
 import tty
 import termios
 
